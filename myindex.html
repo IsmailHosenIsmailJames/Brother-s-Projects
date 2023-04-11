@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="mystyle.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+ 
+
+
+</head>
+
+<body>
+    <div class="dropdown-row">
+        <h3>
+            Weather :
+        </h3>
+        <div class="dropdown">
+            <button class="dropbtn">Temperature</button>
+            <div class="dropdown-content">
+                <a href="#">Now</a>
+                <a href="#">24 hours</a>
+                <a href="#">48 hours</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Wind Speed</button>
+            <div class="dropdown-content">
+                <a href="#">Now</a>
+                <a href="#">24 hours</a>
+                <a href="#">48 hours</a>
+            </div>
+        </div>
+
+        <h3>Distinct measurement : </h3>
+
+        <div class="dropdown">
+            <button class="dropbtn">Now</button>
+            <div class="dropdown-content">
+                <a href="#">Rain</a>
+                <a href="#">Wind speed</a>
+                <a href="#">Wind direction</a>
+                <a href="#">Light</a>
+                <a href="#">Temperature</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">24 hours</button>
+            <div class="dropdown-content">
+                <a href="#">Rain</a>
+                <a href="#">Wind speed</a>
+                <a href="#">Wind direction</a>
+                <a href="#">Light</a>
+                <a href="#">Temperature</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">48 hours</button>
+            <div class="dropdown-content">
+                <a href="#">Rain</a>
+                <a href="#">Wind speed</a>
+                <a href="#">Wind direction</a>
+                <a href="#">Light</a>
+                <a href="#">Temperature</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">1 week</button>
+            <div class="dropdown-content">
+                <a href="#">Rain</a>
+                <a href="#">Wind speed</a>
+                <a href="#">Wind direction</a>
+                <a href="#">Light</a>
+                <a href="#">Temperature</a>
+            </div>
+        </div>
+    </div>
+
+    <table class="table", id="dataTable">
+        </tbody>
+    </table>
+
+    
+    <canvas id="myChart"></canvas>
+
+      
+
+
+</body>
+<script src="myscript.js">
+
+</script>
+
+</html>

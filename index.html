@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+ 
+
+   
+
+</head>
+
+<body>
+
+    <nav>
+
+        <ul class="info">
+
+            <li><a id="title" href="index.html">MY WEATHER PROJECT</a></li>
+
+            <li id="info">
+
+                <a href="#" style="padding-bottom: 10px;">My info</a>
+
+                <ul class="drop" >
+
+                    <li style="border-bottom: none;">
+
+                        <div style="width: auto; margin-top: 10px;">
+
+                            <p style="width: 250px;">Khang Le-khang.le@tuni.fi</p>
+
+                            <p style="width: 250px; margin-top: 3px;">Bachelor of Software Engineering</p>
+
+                        </div>
+
+ 
+
+                        <div style="display: grid; grid-template-columns: 60px 1fr; margin-top: 0px;">
+
+                            <div style="margin-left: 1px;">
+
+                                <img src="data:image/png;base64,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">
+
+                            </div>
+
+   
+
+                            <div style="width: 200px;">
+
+                                <p style="margin-top: 15px;">Tampere University of Applied Sciences</p>
+
+                            </div>
+
+                        </div>
+
+                       
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li><i id="ic" class="fa fa-info-circle"></i></li>
+
+        </ul>
+
+ 
+
+        <ul class="view">
+
+            <li><a href="index.html">Weather</a></li>
+
+ 
+
+            <li>
+
+                <a href="temperature.html" style="padding-bottom: 10px;">Temperature</a>
+
+                <ul class="drop">
+
+                    <li><a href="temperature.html" id="now">Now</a></li>
+
+                    <li><a href="temperature.html" id="two_four">24 hours</a></li>
+
+                    <li><a href="temperature.html" id="four_eight">48 hours</a></li>
+
+                    <li style="border-bottom: none;"><a href="temperature.html" id="week">1 week</a></li>
+
+                </ul>
+
+            </li>
+
+ 
+
+            <li>
+
+                <a href="wind.html" style="padding-bottom: 10px;">Wind Speed</a>
+
+                <ul class="drop">
+
+                    <li><a href="wind.html" id="now">Now</a></li>
+
+                    <li><a href="wind.html" id="two_four">24 hours</a></li>
+
+                    <li><a href="wind.html" id="four_eight">48 hours</a></li>
+
+                    <li style="border-bottom: none;"><a href="wind.html" id="week">1 week</a></li>
+
+                </ul>
+
+            </li>
+
+           
+
+            <li>
+
+                <a href="measurement.html" style="padding-bottom: 10px;">Distinct measurement</a>
+
+                <ul class="drop">
+
+                    <li class="sub"><a href="measurement.html" id="now">Now</a>
+
+                        <div class="type">
+
+                            <ul>
+
+                                <li><a href="measurement.html" id="rain1">Rain</a></li>
+
+                                <li><a href="measurement.html" id="windspeed1">Wind speed</a></li>
+
+                                <li><a href="measurement.html" id="winddirection1">Wind direction</a></li>
+
+                                <li><a href="measurement.html" id="light1">Light</a></li>
+
+                                <li><a href="measurement.html" id="temperature1">Temperature</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </li>
+
+ 
+
+                    <li class="sub"><a href="measurement.html">24 hours</a>
+
+                        <div class="type">
+
+                            <ul>
+
+                                <li><a href="measurement.html" id="rain2">Rain</a></li>
+
+                                <li><a href="measurement.html" id="windspeed2">Wind speed</a></li>
+
+                                <li><a href="measurement.html" id="winddirection2">Wind direction</a></li>
+
+                                <li><a href="measurement.html" id="light2">Light</a></li>
+
+                                <li><a href="measurement.html" id="temperature2">Temperature</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </li>
+
+ 
+
+                    <li class="sub"><a href="measurement.html">48 hours</a>
+
+                        <div class="type">
+
+                            <ul>
+
+                                <li><a href="measurement.html" id="rain3">Rain</a></li>
+
+                                <li><a href="measurement.html" id="windspeed3">Wind speed</a></li>
+
+                                <li><a href="measurement.html" id="winddirection3">Wind direction</a></li>
+
+                                <li><a href="measurement.html" id="light3">Light</a></li>
+
+                                <li><a href="measurement.html" id="temperature3">Temperature</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </li>
+
+ 
+
+                    <li class="sub" style="border-bottom: none;"><a href="measurement.html">1 week</a>
+
+                        <div class="type">
+
+                            <ul>
+
+                                <li><a href="measurement.html" id="rain4">Rain</a></li>
+
+                                <li><a href="measurement.html" id="windspeed4">Wind speed</a></li>
+
+                                <li><a href="measurement.html" id="winddirection4">Wind direction</a></li>
+
+                                <li><a href="measurement.html" id="light4">Light</a></li>
+
+                                <li><a href="measurement.html" id="temperature4">Temperature</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+ 
+
+        </ul>
+
+    </nav>
+
+ 
+
+    <h1 style="margin-left: 20px; margin-top: 10px; padding-left: 25px; font-family: Bahnschrift SemiBold; display: inline-block;">Temperature</h1>
+
+   
+
+    <div style="margin-left: 20px; padding-left: 20px;">
+
+        <table class="table">
+
+            <thead class="head">
+
+                <tr>
+
+                    <td class="table_num">Number</td>
+
+                    <td class="date">Date</td>
+
+                    <td>Time</td>
+
+                    <td class="value">Temperature value</td>
+
+                </tr>
+
+            </thead>
+
+ 
+
+            <tbody id="temperature_tbody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+ 
+
+    <div>
+
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+    </div>
+
+ 
+
+    <script>
+
+        const content = document.getElementById("temperature_tbody");
+
+        const date_label = [];
+
+        const temp_label = [];
+
+        fetch("http://webapi19sa-1.course.tamk.cloud/v1/weather/temperature")
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                const sortedData = data.sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
+
+                sortedData.reverse();
+
+   
+
+                for (let i = 0; i < sortedData.length; i++) {
+
+                    let skeleton = "<tr class='row'>";
+
+                    skeleton += "<td>" + parseInt(i + 1) + "</td>";
+
+                    skeleton += "<td>" + sortedData[i].date_time.replace("T", ", ").replace("Z", "").slice(0, 10) + "</td>";
+
+                    skeleton += "<td>" + sortedData[i].date_time.replace("T", ", ").replace("Z", "").slice(11) + "</td>";
+
+                    skeleton += "<td>" + sortedData[i].temperature + "</td>";
+
+                    skeleton += "</tr>";
+
+                    content.innerHTML += skeleton;
+
+   
+
+                    date_label.push(sortedData[i].date_time);
+
+                    temp_label.push(sortedData[i].temperature);
+
+                }
+
+   
+
+                const myChart = new Chart("myChart", {
+
+                    type: "bar",
+
+                    data: {
+
+                        labels: date_label,
+
+                        datasets: [{
+
+                            data: temp_label,
+
+                            borderColor: 'blue'
+
+                        }]
+
+                    },
+
+                    options: {
+
+                        title: {
+
+                            display: true,
+
+                            text: 'Temperature by Date'
+
+                        }
+
+                    }
+
+                });
+
+            });
+
+    </script>
+
+   
+
+ 
+
+</body>
+
+</html>
